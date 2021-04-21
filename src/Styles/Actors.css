@@ -1,0 +1,25 @@
+.p-actors > .title{
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.p-actors > .sortBy{
+    display: flex;
+    padding-top: 10px;
+}
+.p-actors > .sortBy > span{
+    font-size: 17px;
+    font-weight: bold;
+}
+.p-actors > .sortBy > .mb-3{
+    display: flex;
+    padding-left: 20px;
+}
+
+.p-actors > .sortBy > .mb-3 > .radioOpt{
+    margin-left: 20px;
+}
+
+.p-actors .actorCard{
+    margin: 30px;
+}

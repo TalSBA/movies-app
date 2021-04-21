@@ -1,0 +1,31 @@
+
+[
+    {
+        "firstName": "Gal",
+        "lastName":"Gadot",
+        "birthday":"04/30/1985",
+        "image": "https://m.media-amazon.com/images/M/MV5BMjUzZTJmZDItODRjYS00ZGRhLTg2NWQtOGE0YjJhNWVlMjNjXkEyXkFqcGdeQXVyMTg4NDI0NDM@._V1_UY317_CR51,0,214,317_AL_.jpg",
+        "imdbLink":"https://www.imdb.com/name/nm2933757/bio?ref_=nm_ov_bio_sm"
+    },
+    {
+        "firstName": "Ben",
+        "lastName":"Affleck",
+        "birthday":"08/15/1972",
+        "image": "https://m.media-amazon.com/images/M/MV5BMzczNzNiMDAtMmUzZS00MTkwLWIwOTYtNmYyNjg3MTVkNThhXkEyXkFqcGdeQXVyMjA4MjI5MTA@._V1_UY317_CR12,0,214,317_AL_.jpg",
+        "imdbLink":"https://www.imdb.com/name/nm0000255/bio?ref_=nm_ov_bio_sm"
+    },
+    {
+        "firstName": "Scarlett",
+        "lastName":"Johansson",
+        "birthday":"11/22/1984",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTM3OTUwMDYwNl5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._V1_UY317_CR23,0,214,317_AL_.jpg",
+        "imdbLink":"https://www.imdb.com/name/nm0424060/bio?ref_=nm_ov_bio_sm"
+    },
+    {
+        "firstName": "Tom",
+        "lastName":"Cruise",
+        "birthday":"07/03/1962",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTk1MjM3NTU5M15BMl5BanBnXkFtZTcwMTMyMjAyMg@@._V1_UY317_CR14,0,214,317_AL_.jpg",
+        "imdbLink":"https://www.imdb.com/name/nm0000129/bio?ref_=nm_ov_bio_sm"
+    }
+]

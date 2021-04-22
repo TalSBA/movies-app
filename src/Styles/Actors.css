@@ -1,11 +1,14 @@
 .p-actors > .title {
   text-align: center;
   padding-bottom: 50px;
+  color: darkgoldenrod;
+  font-size: 48px !important;
 }
 
 .p-actors > .sortBy {
   display: flex;
   padding-top: 10px;
+  color: white;
 }
 .p-actors > .sortBy > span {
   font-size: 17px;
@@ -23,7 +26,19 @@
 .p-actors .actorCard {
   margin: 30px;
 }
-
+.p-actors .actorCard a {
+  color: rgb(248, 186, 31);
+  font-weight: bold;
+}
+.p-actors .actorCard .card-body {
+  text-align: center;
+}
 .spinner {
   margin-left: 50%;
+}
+
+.p-actors .actorCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 80px -25px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s;
 }

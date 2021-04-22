@@ -121,7 +121,7 @@ function Actors(props) {
       {actors ? (
         <Row>{actorCards && actorCards.length > 0 ? actorCards : ""}</Row>
       ) : (
-        <Spinner className="spinner" animation="grow" variant="info" />
+        <Spinner className="spinner" animation="grow" variant="warning" />
       )}
     </Container>
   );

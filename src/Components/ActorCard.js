@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 
 function ActorCard({ actor }) {
   return (
-    <Card className="actorCard">
+    <Card className="actorCard" border="warning">
       <Card.Img variant="top" src={actor.image} />
       <Card.Body>
         <Card.Title>

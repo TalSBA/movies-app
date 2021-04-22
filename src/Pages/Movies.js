@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import SearchBox from "../Components/SearchBox";
 import MovieModel from "../Model/MovieModel";
 import MovieCard from "../Components/MovieCard";
@@ -7,12 +7,7 @@ import "../Styles/Movies.css";
 import axios from "axios";
 
 function Movies(props) {
-  const [movies, setMovies] = useState([
-    new MovieModel("test", "90", "test", "test", "test"),
-    new MovieModel("test", "90", "test", "test", "test"),
-    new MovieModel("test", "90", "test", "test", "test"),
-    new MovieModel("test", "90", "test", "test", "test"),
-  ]);
+  const [movies, setMovies] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [results, setResults] = useState([]);
 
@@ -30,7 +25,14 @@ function Movies(props) {
     }
   }
   function AddMovie(resultIndex) {
-    setMovies(movies.concat(new MovieModel(results[resultIndex].original_title)));
+    setMovies(
+      movies.concat(
+        new MovieModel(
+          results[resultIndex].original_title,
+          results[resultIndex].poster_path
+        )
+      )
+    );
     setSearchText("");
     setResults([]);
   }
@@ -44,9 +46,14 @@ function Movies(props) {
           results={results.map((result) => result.original_title)}
           onResultSelected={AddMovie}
         />
-        {movies.map((movie) => (
-          <MovieCard movie={movie} />
-        ))}
+        <Row>
+          {movies.map((movie) => (
+            <Col lg={3} md={6}>
+              {" "}
+              <MovieCard movie={movie} />
+            </Col>
+          ))}
+        </Row>
       </Container>
     </div>
   );

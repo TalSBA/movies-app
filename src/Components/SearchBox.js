@@ -1,16 +1,21 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Form, ListGroup } from "react-bootstrap";
 import "../Styles/SearchBox.css";
 
-function SearchBox({ placeholder, searchText, onSearchChange }) {
+function SearchBox({ placeholder, searchText, onSearchChange, results }) {
   return (
     <div className="c-searchBox">
       <Form.Control
         type="text"
         placeholder={placeholder}
         value={searchText}
-        onChange={e => onSearchChange(e.target.value)}
+        onChange={(e) => onSearchChange(e.target.value)}
       />
+      <ListGroup className="result-box">
+        {results.map((result) => (
+          <ListGroup.Item action>{result}</ListGroup.Item>
+        ))}
+      </ListGroup>
     </div>
   );
 }

@@ -4,7 +4,7 @@ class MovieModel {
         this.duration = duration;
         this.poster = poster;
         this.mainStars = mainStars;
-    }
+    } 
       
   }
   

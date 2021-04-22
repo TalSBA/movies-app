@@ -1,22 +1,47 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Container, Form, FormControl, InputGroup, Row } from "react-bootstrap";
+import {
+  Container,
+  Form,
+  FormControl,
+  InputGroup,
+  Row,
+  Spinner,
+} from "react-bootstrap";
 import ActorCard from "../Components/ActorCard";
+import ActorModel from "../Model/ActorModel";
+
 import "../Styles/Actors.css";
 
 function Actors(props) {
   const [filterText, setFilterText] = useState("");
   const [sortProperty, setSortBy] = useState("firstName");
-  const [actors, setActors] = useState([]);
+  const [actors, setActors] = useState(null);
 
   //we want to fetch the actors data from JSON only once the component is mounting
   useEffect(() => {
-    axios.get("actors.json").then(response => {
-      console.error(response);
-    }).catch(error => {
-        console.error(error);
-    });
-}, []);
+    setTimeout(function () {
+      axios
+        .get("actors.json")
+        .then((response) => {
+          setActors(
+            response.data.map(
+              (actor) =>
+                new ActorModel(
+                  actor.firstName,
+                  actor.lastName,
+                  actor.birthday,
+                  actor.image,
+                  actor.imdbLink
+                )
+            )
+          );
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }, 3000);
+  }, []);
 
   function sortActorsBy(e) {
     setSortBy(e.target.value);
@@ -24,31 +49,34 @@ function Actors(props) {
   function filterActors(e) {
     setFilterText(e.target.value);
   }
-  const actorCards = actors
-    .filter((actor) => {
-      return (
-        actor.firstName.toLowerCase().includes(filterText.toLowerCase()) ||
-        actor.lastName.toLowerCase().includes(filterText.toLowerCase())
-      );
-    })
-    .sort((actor1, actor2) => {
-      let actor1Prop = actor1[sortProperty];
-      let actor2Prop = actor2[sortProperty];
-      if (sortProperty == "age") {
-        actor1Prop = actor1.Age();
-        actor2Prop = actor2.Age();
-      }
-      if (actor2Prop > actor1Prop) {
-        return -1;
-      } else if (actor1Prop > actor2Prop) {
-        return 1;
-      } else {
-        return 0;
-      }
-    })
-    .map((actor) => (
-      <ActorCard key={actor.id + actor.imdbLink} actor={actor} />
-    ));
+  let actorCards;
+  if (actors) {
+    actorCards = actors
+      .filter((actor) => {
+        return (
+          actor.firstName.toLowerCase().includes(filterText.toLowerCase()) ||
+          actor.lastName.toLowerCase().includes(filterText.toLowerCase())
+        );
+      })
+      .sort((actor1, actor2) => {
+        let actor1Prop = actor1[sortProperty];
+        let actor2Prop = actor2[sortProperty];
+        if (sortProperty == "age") {
+          actor1Prop = actor1.Age();
+          actor2Prop = actor2.Age();
+        }
+        if (actor2Prop > actor1Prop) {
+          return -1;
+        } else if (actor1Prop > actor2Prop) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+      .map((actor) => (
+        <ActorCard key={actor.id + actor.imdbLink} actor={actor} />
+      ));
+  }
   return (
     <Container className="p-actors">
       <h1 className="title">Actors Gallery</h1>
@@ -89,7 +117,12 @@ function Actors(props) {
           />
         </div>
       </Form>
-      <Row>{actorCards && actorCards.length > 0 ? actorCards : ""}</Row>
+
+      {actors ? (
+        <Row>{actorCards && actorCards.length > 0 ? actorCards : ""}</Row>
+      ) : (
+        <Spinner className="spinner" animation="grow" variant="info" />
+      )}
     </Container>
   );
 }

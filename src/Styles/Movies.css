@@ -1,3 +1,7 @@
 .p-movies {
     margin-top: 20px;
 }
+
+.p-movies .bold-title{
+    font-weight: bold;
+}

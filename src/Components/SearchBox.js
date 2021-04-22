@@ -2,7 +2,7 @@ import React from "react";
 import { Form, ListGroup } from "react-bootstrap";
 import "../Styles/SearchBox.css";
 
-function SearchBox({ placeholder, searchText, onSearchChange, results }) {
+function SearchBox({ placeholder, searchText, onSearchChange, results, onResultSelected }) {
   return (
     <div className="c-searchBox">
       <Form.Control
@@ -12,8 +12,8 @@ function SearchBox({ placeholder, searchText, onSearchChange, results }) {
         onChange={(e) => onSearchChange(e.target.value)}
       />
       <ListGroup className="result-box">
-        {results.map((result) => (
-          <ListGroup.Item action>{result}</ListGroup.Item>
+        {results.map((result, index) => (
+          <ListGroup.Item action onClick={() => onResultSelected(index)}>{result}</ListGroup.Item>
         ))}
       </ListGroup>
     </div>

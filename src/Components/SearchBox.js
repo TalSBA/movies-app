@@ -13,7 +13,7 @@ function SearchBox({ placeholder, searchText, onSearchChange, results, onResultS
       />
       <ListGroup className="result-box">
         {results.map((result, index) => (
-          <ListGroup.Item action onClick={() => onResultSelected(index)}>{result}</ListGroup.Item>
+          <ListGroup.Item key={index} action onClick={() => onResultSelected(index)}>{result}</ListGroup.Item>
         ))}
       </ListGroup>
     </div>

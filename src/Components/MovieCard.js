@@ -35,8 +35,8 @@ function MovieCard({ movie }) {
         </div>
         <div className="movie_social">
           <ul>
-            {movie.mainStars.map((star) => (
-              <li>{star}</li>
+            {movie.mainStars.map((star,index) => (
+              <li key={index}>{star}</li>
             ))}
           </ul>
         </div>

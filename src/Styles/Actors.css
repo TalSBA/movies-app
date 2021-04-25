@@ -1,10 +1,15 @@
+.p-actors {
+  margin: 0 auto;
+}
 .p-actors > .title {
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: 15px;
   color: darkgoldenrod;
   font-size: 48px !important;
 }
 
+.p-actors .input-filter{
+}
 .p-actors > .sortBy {
   display: flex;
   padding-top: 10px;
@@ -16,7 +21,6 @@
 }
 .p-actors > .sortBy > .mb-3 {
   display: flex;
-  padding-left: 20px;
 }
 
 .p-actors > .sortBy > .mb-3 > .radioOpt {

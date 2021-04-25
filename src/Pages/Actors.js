@@ -80,7 +80,7 @@ function Actors(props) {
   return (
     <Container className="p-actors">
       <h1 className="title">Actors Gallery</h1>
-      <InputGroup>
+      <InputGroup className="input-filter">
         <FormControl
           placeholder="Filter by First Name and Last Name"
           aria-label="Filter by First Name and Last Name"

@@ -1,0 +1,23 @@
+.p-home h1{
+    color: white;
+    font-size: 40px !important;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.p-home .home-image{
+    display: inline-block;
+    background-image: url("./movies-img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    vertical-align: middle;
+    line-height: 0;
+    font-size: 0;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
